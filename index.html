@@ -59,6 +59,7 @@
         }
 
         .blouse-card {
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -356,6 +357,21 @@
             border: 3px solid var(--primary-color);
             box-shadow: 0 0 10px var(--primary-color);
             transition: box-shadow 0.3s ease, border 0.3s ease;
+        }
+
+        .share-button {
+            margin-top: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .share-button:hover {
+            background-color: var(--secondary-color);
         }
     </style>
 </head>
