@@ -351,6 +351,12 @@
                 transform: translateY(0);
             }
         }
+
+        .highlighted {
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 10px var(--primary-color);
+            transition: box-shadow 0.3s ease, border 0.3s ease;
+        }
     </style>
 </head>
 <body>
@@ -374,34 +380,42 @@
 
         <div class="blouse-card">
             <img src="imgs-2024/8.webp" alt="Festival Blouse" class="blouse-image" loading="lazy" srcset="imgs-2024/8-small.webp 480w, imgs-2024/8.webp 800w">
+            <button class="share-button" onclick="shareImage('imgs-2024/8.webp', 'Festival Blouse')">Share</button>
         </div>    
 
         <div class="blouse-card">
             <img src="imgs-2024/9.webp" alt="Festival Blouse" class="blouse-image" loading="lazy" srcset="imgs-2024/9-small.webp 480w, imgs-2024/9.webp 800w">
+            <button class="share-button" onclick="shareImage('imgs-2024/9.webp', 'Festival Blouse')">Share</button>
         </div>
 
         <div class="blouse-card">
             <img src="imgs-2024/10.webp" alt="Festival Blouse" class="blouse-image" loading="lazy" srcset="imgs-2024/10-small.webp 480w, imgs-2024/10.webp 800w">
+            <button class="share-button" onclick="shareImage('imgs-2024/10.webp', 'Festival Blouse')">Share</button>
         </div>
 
         <div class="blouse-card">
             <img src="imgs-2024/11.webp" alt="Festival Blouse" class="blouse-image" loading="lazy" srcset="imgs-2024/11-small.webp 480w, imgs-2024/11.webp 800w">
+            <button class="share-button" onclick="shareImage('imgs-2024/11.webp', 'Festival Blouse')">Share</button>
         </div>
 
         <div class="blouse-card">
             <img src="imgs-2024/12.webp" alt="Festival Blouse" class="blouse-image" loading="lazy" srcset="imgs-2024/12-small.webp 480w, imgs-2024/12.webp 800w">
+            <button class="share-button" onclick="shareImage('imgs-2024/12.webp', 'Festival Blouse')">Share</button>
         </div>
 
         <div class="blouse-card">
             <img src="imgs-2024/13.webp" alt="Festival Blouse" class="blouse-image" loading="lazy" srcset="imgs-2024/13-small.webp 480w, imgs-2024/13.webp 800w">
+            <button class="share-button" onclick="shareImage('imgs-2024/13.webp', 'Festival Blouse')">Share</button>
         </div>
 
         <div class="blouse-card">
             <img src="imgs-2024/14.webp" alt="Festival Blouse" class="blouse-image" loading="lazy" srcset="imgs-2024/14-small.webp 480w, imgs-2024/14.webp 800w">
+            <button class="share-button" onclick="shareImage('imgs-2024/14.webp', 'Festival Blouse')">Share</button>
         </div>
 
         <div class="blouse-card">
             <img src="imgs-2024/15.webp" alt="Festival Blouse" class="blouse-image" loading="lazy" srcset="imgs-2024/15-small.webp 480w, imgs-2024/15.webp 800w">
+            <button class="share-button" onclick="shareImage('imgs-2024/15.webp', 'Festival Blouse')">Share</button>
         </div>
 
         <div class="blouse-card">
@@ -419,6 +433,7 @@
 
         <div class="blouse-card">
             <img src="imgs-2024/2.webp" alt="Party Wear Blouse" class="blouse-image" loading="lazy" srcset="imgs-2024/2-small.webp 480w, imgs-2024/2.webp 800w">
+            <button class="share-button" onclick="shareImage('imgs-2024/2.webp', 'Party Wear Blouse')">Share</button>
             <div class="blouse-info">
                 <h3>Silk Blouse with Embroidery</h3>
                 <p>Featuring a stylish neckline</p>
@@ -440,18 +455,22 @@
 
         <div class="blouse-card">
             <img src="imgs-2024/4.webp" alt="Bridal Blouse" class="blouse-image" loading="lazy" srcset="imgs-2024/4-small.webp 480w, imgs-2024/4.webp 800w">
+            <button class="share-button" onclick="shareImage('imgs-2024/4.webp', 'Bridal Blouse')">Share</button>
         </div>
 
         <div class="blouse-card">
             <img src="imgs-2024/5.webp" alt="Casual Blouse" class="blouse-image" loading="lazy" srcset="imgs-2024/5-small.webp 480w, imgs-2024/5.webp 800w">
+            <button class="share-button" onclick="shareImage('imgs-2024/5.webp', 'Casual Blouse')">Share</button>
         </div>
 
         <div class="blouse-card"></div>
             <img src="imgs-2024/6.webp" alt="Casual Blouse" class="blouse-image" loading="lazy" srcset="imgs-2024/6-small.webp 480w, imgs-2024/6.webp 800w">
+            <button class="share-button" onclick="shareImage('imgs-2024/6.webp', 'Casual Blouse')">Share</button>
         </div>
 
         <div class="blouse-card">
             <img src="imgs-2024/7.webp" alt="Festival Blouse" class="blouse-image" loading="lazy" srcset="imgs-2024/7-small.webp 480w, imgs-2024/7.webp 800w">
+            <button class="share-button" onclick="shareImage('imgs-2024/7.webp', 'Festival Blouse')">Share</button>
         </div>
         
     </main>
@@ -499,6 +518,35 @@
     </footer>
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const imageParam = urlParams.get('image');
+            const images = document.querySelectorAll('.blouse-image');
+            let imagesLoaded = 0;
+
+            function checkAllImagesLoaded() {
+                if (imagesLoaded === images.length && imageParam) {
+                    const targetImage = document.querySelector(`img[src="${imageParam}"]`);
+                    if (targetImage) {
+                        targetImage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        targetImage.classList.add('highlighted');
+                    }
+                }
+            }
+
+            images.forEach((img) => {
+                if (img.complete) {
+                    imagesLoaded++;
+                    checkAllImagesLoaded();
+                } else {
+                    img.addEventListener('load', () => {
+                        imagesLoaded++;
+                        checkAllImagesLoaded();
+                    });
+                }
+            });
+        });
+
         let currentImageIndex = 0;
 
         function changeImage(direction) {
@@ -506,6 +554,30 @@
             images[currentImageIndex].classList.remove('active');
             currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
             images[currentImageIndex].classList.add('active');
+        }
+
+        function shareImage(imageUrl, imageName) {
+            const currentUrl = window.location.href.split('?')[0]; // Get the base URL without query parameters
+            const shareUrl = `${currentUrl}?image=${encodeURIComponent(imageUrl)}`;
+
+            // Copy the URL to the clipboard
+            navigator.clipboard.writeText(shareUrl).then(() => {
+                console.log('URL copied to clipboard');
+            }).catch(err => {
+                console.error('Could not copy text: ', err);
+            });
+
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Check out this blouse design!',
+                    text: `Here's a beautiful blouse design: ${imageName}`,
+                    url: shareUrl
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                }).catch(console.error);
+            } else {
+                alert('Web Share API is not supported in your browser.');
+            }
         }
     </script>
 </body>
