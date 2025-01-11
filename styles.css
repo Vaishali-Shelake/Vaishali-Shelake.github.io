@@ -365,3 +365,22 @@ nav {
 .share-button:hover {
     background-color: #777; /* Slightly lighter gray on hover */
 }
+
+.new-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+img {
+    width: 100%; /* Set desired width */
+    height: auto; /* Maintains aspect ratio */
+  }
+  
