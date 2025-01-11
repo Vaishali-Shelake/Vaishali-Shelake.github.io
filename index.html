@@ -576,6 +576,17 @@
                     });
                 }
             });
+
+            // Update Open Graph meta tags immediately if imageParam is present
+            if (imageParam) {
+                const ogImage = document.querySelector('meta[property="og:image"]');
+                const ogUrl = document.querySelector('meta[property="og:url"]');
+                const currentUrl = window.location.href.split('?')[0];
+                if (ogImage && ogUrl) {
+                    ogImage.setAttribute('content', imageParam);
+                    ogUrl.setAttribute('content', `${currentUrl}?image=${encodeURIComponent(imageParam)}`);
+                }
+            }
         });
 
         let currentImageIndex = 0;
