@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const blouseData = [
-        { src: 'imgs-2025/1.webp', alt: 'New Design 1', label: 'New', description: 'New Design 1' },
+        { src: 'imgs-2025/5.webp', alt: 'New Design 5', label: 'New', description: 'New Design 5' },
+        { src: 'imgs-2025/4.webp', alt: 'New Design 4', label: 'New', description: 'New Design 4' },
+        { src: 'imgs-2025/3.webp', alt: 'New Design 3', label: 'New', description: 'New Design 3' },
         { src: 'imgs-2025/2.webp', alt: 'New Design 2', label: 'New', description: 'New Design 2' },
+        { src: 'imgs-2025/1.webp', alt: 'New Design 1', label: 'New', description: 'New Design 1' },
         { src: 'imgs-2024/8.webp', alt: 'Festival Blouse', description: 'Festival Blouse' },
         { src: 'imgs-2024/9.webp', alt: 'Festival Blouse', description: 'Festival Blouse' },
         { src: 'imgs-2024/10.webp', alt: 'Festival Blouse', description: 'Festival Blouse' },
