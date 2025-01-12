@@ -400,3 +400,13 @@ img {
     height: auto; /* Maintains aspect ratio */
   }
   
+#decorative-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.decorative-image {
+    width: 200px; /* Adjust size as needed */
+    margin: 0 auto;
+    display: block;
+}
